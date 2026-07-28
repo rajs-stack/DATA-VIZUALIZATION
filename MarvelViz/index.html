@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Marvel Movies Visualization</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <header>
+
+            <div class="hero-copy">
+                <h1>Which is the Best Performing Marvel Movie?</h1>
+                <p>Interactive D3 bubble chart comparing financial performance, reviews, and audience reception.</p>
+            </div>
+
+            <div id="legend" class="legend"></div>
+
+        </header>
+
+        <section id="controls">
+
+            <div class="control">
+
+                <label>X Axis</label>
+
+                <select id="x-axis">
+                    <option value="year">Year</option>
+                    <option value="critics">Critics Score</option>
+                    <option value="audience">Audience Score</option>
+                    <option value="worldwideGross">Worldwide Gross</option>
+                </select>
+
+            </div>
+
+            <div class="control">
+
+                <label>Y Axis</label>
+
+                <select id="y-axis">
+                    <option value="budgetRecovered">Budget Recovered %</option>
+                    <option value="critics">Critics Score</option>
+                    <option value="audience">Audience Score</option>
+                    <option value="domesticGross">Domestic Gross</option>
+                </select>
+
+            </div>
+
+            <div class="control">
+
+                <label>Bubble Size</label>
+
+                <select id="bubble-size">
+                    <option value="worldwideGross">Worldwide Gross</option>
+                    <option value="budget">Budget</option>
+                    <option value="openingWeekend">Opening Weekend</option>
+                </select>
+
+            </div>
+
+        </section>
+
+        <main>
+
+            <svg id="chart"></svg>
+
+        </main>
+
+    </div>
+
+    <div id="tooltip"></div>
+
+    <script type="module" src="app.js"></script>
+
+</body>
+
+</html>

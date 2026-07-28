@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0f172a 0%, #020617 55%, #030712 100%);
+  color: #e2e8f0;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+header {
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 26px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.45);
+}
+
+.hero-copy {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.25rem, 3.5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+}
+
+.hero-copy p {
+  margin-top: 1rem;
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.legend {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.6);
+  color: #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.legend-text {
+  color: #e2e8f0;
+}
+
+.axis-label {
+  fill: #94a3b8;
+  font-size: 0.95rem;
+}
+
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.control {
+  display: grid;
+  gap: 0.6rem;
+  min-width: 190px;
+}
+
+.control label {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+select {
+  font: inherit;
+  background: rgba(15, 23, 42, 0.9);
+  color: #e2e8f0;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 14px;
+  padding: 0.95rem 1rem;
+  cursor: pointer;
+}
+
+main {
+  flex: 1;
+  position: relative;
+  min-height: 620px;
+}
+
+#chart {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.axis text {
+  fill: #cbd5e1;
+  font-size: 12px;
+}
+
+.axis path,
+.axis line {
+  stroke: rgba(148, 163, 184, 0.45);
+}
+
+.grid line {
+  stroke: rgba(148, 163, 184, 0.14);
+}
+
+.grid path {
+  display: none;
+}
+
+.bubble-label {
+  font-size: 10px;
+  font-weight: 700;
+  fill: #f8fafc;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+#tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  transform-origin: top left;
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  color: #e2e8f0;
+  min-width: 220px;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.tooltip-title {
+  font-weight: 800;
+  margin-bottom: 0.55rem;
+}
+
+.tooltip-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tooltip-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+.tooltip-list li strong {
+  color: #f8fafc;
+  min-width: 110px;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  #controls {
+    justify-content: stretch;
+  }
+
+  .control {
+    min-width: 100%;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.5rem;
+  }
+}

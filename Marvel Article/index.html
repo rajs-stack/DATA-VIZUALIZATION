@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Which is The Best Performing Marvel Movie?</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand">
+        <img src="./DATA/information-is-beautiful-logo-flower.svg" alt="IIB mark" class="brand__mark" />
+        <img src="./DATA/information-is-beautiful-logo-text-dark.svg" alt="information is beautiful" class="brand__text" />
+      </div>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><button class="nav__link">About</button></li>
+          <li><button class="nav__link">Workshops</button></li>
+          <li><button class="nav__link">Books</button></li>
+          <li><button class="nav__link">Work</button></li>
+          <li><button class="nav__link">Store</button></li>
+          <li><button class="nav__link">Blog</button></li>
+          <li class="nav__more">
+            <button class="nav__link nav__more-toggle" aria-expanded="false" aria-haspopup="true">More ▾</button>
+            <div class="nav__more-menu" role="menu">
+              <a role="menuitem" href="#">Careers</a>
+              <a role="menuitem" href="#">Contact</a>
+              <a role="menuitem" href="#">Privacy</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="viz-hero" aria-hidden="false">
+    <div class="viz-inner">
+      <h2 class="viz-title" data-font-size="21,1.75" style="font-size: calc(21px + 1.75vw);">Which is The Best Performing Marvel Movie?</h2>
+      <div id="viz-placeholder" class="viz-placeholder" role="region" aria-label="Visualization placeholder"></div>
+    </div>
+  </section>
+
+  <main class="content">
+    <article class="article">
+      <h1 class="article__title">Which is The Best Performing Marvel Movie?</h1>
+      <p class="lead">A grayscale article showcasing an interactive companion visualization — explore budgets, grosses, and audience reaction across the Marvel catalogue.</p>
+
+      <section class="article__body">
+        <h2>Introduction</h2>
+        <p>This piece recreates the Information Is Beautiful "Which is the Best Performing Marvel Movie?" visualization using D3.js. Start by exploring the chart to compare films by financial and critical metrics.</p>
+      </section>
+    </article>
+  </main>
+
+  <div id="tooltip" class="tooltip" aria-hidden="true"></div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

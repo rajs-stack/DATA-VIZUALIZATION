@@ -1,0 +1,163 @@
+/* Grayscale-first article styles with top navigation */
+:root{
+  --bg:#f5f5f6; /* light gray background */
+  --panel:#ffffff; /* white panels */
+  --muted:#6b7280; /* gray text */
+  --text:#111827; /* dark text */
+  --nav-bg:#ffffff; /* nav background */
+  --nav-border:#e6e6e8;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);}
+
+/* Top navigation */
+.topbar{
+  width:100%;
+  background:var(--nav-bg);
+  border-bottom:1px solid var(--nav-border);
+  box-shadow: 0 6px 14px rgba(16,24,40,0.04);
+}
+
+.topbar__inner{
+  max-width:1180px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:12px 20px;
+}
+
+.brand{display:flex;align-items:center;gap:12px}
+.brand__mark{width:36px;height:36px;filter:none;}
+.brand__text{height:22px;filter:none;}
+
+.nav__list{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:10px}
+.nav__list li{display:flex;align-items:center}
+
+.nav__link{
+  background:transparent;
+  border:0;
+  color:var(--muted);
+  padding:10px 12px;
+  font-size:15px;
+  cursor:pointer;
+  position:relative; /* for underline pseudo-element */
+}
+
+/* underline that appears at the bottom edge of the topbar when hovering */
+.nav__link::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%) scaleX(0);
+  transform-origin:center;
+  width:68%;
+  height:6px; /* visible thickness */
+  bottom: calc(-1 * (12px)); /* aligns with the topbar bottom (topbar__inner padding) */
+  border-radius:4px 4px 0 0;
+  background: linear-gradient(90deg,#f472b6,#f97316 60%); /* pink -> orange accent matching screenshot */
+  transition: transform 180ms cubic-bezier(.2,.8,.2,1), opacity 180ms;
+  opacity:0.95;
+  pointer-events:none;
+}
+
+.nav__link:hover::after,
+.nav__link:focus::after{
+  transform:translateX(-50%) scaleX(1);
+}
+
+.nav__link:hover,
+.nav__link:focus{
+  color:var(--text);
+  outline:none;
+}
+
+/* More dropdown */
+.nav__more{position:relative}
+.nav__more-toggle{display:inline-flex;align-items:center}
+.nav__more-menu{
+  position:absolute;
+  right:0;
+  top:calc(100% + 8px);
+  background:var(--panel);
+  border:1px solid var(--nav-border);
+  min-width:150px;
+  border-radius:8px;
+  box-shadow:0 12px 30px rgba(16,24,40,0.08);
+  padding:6px 8px;
+  display:none;
+  flex-direction:column;
+  z-index:40;
+}
+
+.nav__more-menu a{
+  color:var(--text);
+  text-decoration:none;
+  padding:8px 10px;
+  border-radius:6px;
+  font-size:14px;
+}
+
+.nav__more-menu a:hover{background:#f2f4f7}
+
+/* Page content */
+.content{max-width:980px;margin:28px auto;padding:0 20px}
+.article{background:var(--panel);padding:24px;border-radius:10px;box-shadow:0 12px 30px rgba(2,6,23,0.06)}
+.article__title{font-size:clamp(1.6rem,2.8vw,2.4rem);margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 18px}
+
+/* Tooltip placeholder */
+.tooltip{position:fixed;pointer-events:none;opacity:0}
+
+/* Responsive */
+@media (max-width:860px){
+  .topbar__inner{padding:10px 14px}
+  .nav__list{gap:6px}
+  /* keep the brand text visible on narrower screens but reduce size */
+  .brand__text{height:18px;opacity:0.95;filter:none}
+}
+
+@media (max-width:560px){
+  .nav__list{display:none}
+}
+
+/* Full-bleed visualization hero (placeholder rectangle) */
+.viz-hero{
+  background:#26232B;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  /* sits directly under the topbar, full-bleed */
+  padding:56px 0;
+}
+
+.viz-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 20px;
+  color:#ffffff;
+  text-align:center; /* center-align the heading and content */
+}
+
+.viz-title{
+  margin:0 0 18px 0;
+  /* Use Inter Tight if available, fall back to Inter and system fonts */
+  font-family: "Inter Tight", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 32.935px; /* precise size requested */
+  font-weight: 600;
+  line-height: 1.05;
+  color: rgb(255, 255, 255);
+}
+
+.viz-placeholder{
+  width:100%;
+  height:480px;
+  background:transparent; /* hero background provides the grey */
+  border-radius:8px;
+  display:block;
+  /* subtle inner border to hint where the chart will appear */
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
