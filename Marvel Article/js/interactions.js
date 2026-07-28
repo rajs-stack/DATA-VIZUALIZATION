@@ -1,3 +1,4 @@
+import * as d3 from "https://unpkg.com/d3@7?module";
 import { showTooltip, moveTooltip, hideTooltip } from "./tooltip.js";
 
 export function attachHoverBehavior(selection, hoverLabel) {

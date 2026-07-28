@@ -1,3 +1,5 @@
+import "./js/main.js";
+
 // Topbar interactions (dropdown) and small helpers
 
 function qs(sel) { return document.querySelector(sel); }

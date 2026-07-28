@@ -1,3 +1,5 @@
+import * as d3 from "https://unpkg.com/d3@7?module";
+
 const parsePercent = (text) => {
   if (!text && text !== 0) return NaN;
   const cleaned = String(text).replace(/%/g, "").trim();

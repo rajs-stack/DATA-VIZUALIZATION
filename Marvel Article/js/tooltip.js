@@ -1,4 +1,6 @@
-const tooltip = d3.select("body").append("div").attr("class", "chart-tooltip").attr("id", "viz-tooltip");
+import * as d3 from "https://unpkg.com/d3@7?module";
+
+const tooltip = d3.select("#tooltip");
 
 const formatMoney = (value) => {
   if (value == null || Number.isNaN(value)) return "n/a";
@@ -22,9 +24,14 @@ export function showTooltip(event, movie) {
       <div class="line"><strong>% Gross from Domestic</strong><span>${formatPercent(movie.domesticPercent)}</span></div>
       <div class="line"><strong>% Gross from International</strong><span>${formatPercent(movie.internationalPercent)}</span></div>
     `)
-    .classed("visible", true);
+    .classed("visible", true)
+    .attr("aria-hidden", "false");
 
   moveTooltip(event);
+}
+
+export function hideTooltip() {
+  tooltip.classed("visible", false).attr("aria-hidden", "true");
 }
 
 export function moveTooltip(event) {
@@ -40,8 +47,4 @@ export function moveTooltip(event) {
   const top = y + 18;
 
   tooltip.style("left", `${left}px`).style("top", `${top}px`);
-}
-
-export function hideTooltip() {
-  tooltip.classed("visible", false);
 }

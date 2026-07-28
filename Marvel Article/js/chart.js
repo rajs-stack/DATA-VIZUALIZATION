@@ -1,12 +1,19 @@
+import * as d3 from "https://unpkg.com/d3@7?module";
 import { attachHoverBehavior } from "./interactions.js";
 
 const margin = { top: 32, right: 30, bottom: 48, left: 68 };
-const pointRadius = 6;
+const pointRadius = 8;
 
 export class ScatterChart {
   constructor(container, data) {
     this.container = d3.select(container);
     this.data = data;
+
+    // build category color scale
+    this.categories = Array.from(new Set(this.data.map((d) => d.category))).sort();
+    // use a pleasant categorical palette
+    this.color = d3.scaleOrdinal(d3.schemeTableau10).domain(this.categories);
+
     this.initialize();
   }
 
@@ -63,6 +70,15 @@ export class ScatterChart {
       .domain([minY, maxY])
       .range([this.height, 0])
       .nice();
+
+    const moviesByYear = d3.group(this.data, (d) => d.year);
+    moviesByYear.forEach((movies) => {
+      const widthPerCluster = Math.min(18, this.width * 0.02);
+      movies.forEach((movie, index) => {
+        const offsetIndex = index - (movies.length - 1) / 2;
+        movie.jitter = offsetIndex * widthPerCluster;
+      });
+    });
   }
 
   drawGrid() {
@@ -137,21 +153,17 @@ export class ScatterChart {
     dotsEnter
       .append("circle")
       .attr("class", "dot")
-      .attr("r", 0)
-      .attr("cx", (d) => (d.x = this.xScale(d.releasedAt)))
-      .attr("cy", (d) => (d.y = this.yScale(d.budgetRecovered)))
-      .transition()
-      .duration(420)
-      .attr("r", pointRadius);
-
-    dotsEnter.merge(dots).attr("transform", (d) => `translate(${d.x}, ${d.y})`);
-
-    dots
-      .select("circle")
-      .transition()
-      .duration(360)
+      .attr("r", pointRadius)
       .attr("cx", 0)
-      .attr("cy", 0);
+      .attr("cy", 0)
+      .attr("fill", (d) => this.color(d.category))
+      .attr("fill-opacity", 1);
+
+    dotsEnter.merge(dots).attr("transform", (d) => {
+      d.x = this.xScale(d.releasedAt) + (d.jitter || 0);
+      d.y = this.yScale(d.budgetRecovered);
+      return `translate(${d.x}, ${d.y})`;
+    });
 
     const merged = dotsEnter.merge(dots);
     attachHoverBehavior(merged, this.labelLayer);
