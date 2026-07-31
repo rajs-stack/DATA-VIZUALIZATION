@@ -77,7 +77,7 @@ body {
     margin-top: 8rem;
 }
 .spacing-xl {
-    margin-top: 12rem;
+    margin-top: 16rem; /* Increased to push text far away from previous massive charts */
 }
 .spacing-bottom-lg {
     margin-bottom: 8rem;
@@ -316,15 +316,16 @@ body {
 /* --- FULL BLEED SANKEY CHART (Viewport Focus) --- */
 .full-bleed-chart {
     width: 100vw;
-    height: 100vh; /* Locks entirely to screen */
+    min-height: 100vh; /* Allowed to stretch beyond 100vh if the script requires it */
+    height: auto;
     position: relative;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
     margin-top: 4rem;
-    margin-bottom: 10rem; /* Heavy bottom margin to separate from next section */
-    padding: 3rem 0;
+    margin-bottom: 12rem; /* Heavy bottom margin to prevent overlap with next text block */
+    padding: 4rem 0;
     background: rgba(10, 10, 12, 0.85); /* Slightly darker backdrop for focus */
     border-top: 1px solid var(--surface-border);
     border-bottom: 1px solid var(--surface-border);
@@ -336,7 +337,6 @@ body {
 .full-bleed-chart .flourish-embed {
     width: 100%;
     max-width: 1800px;
-    height: 90%; 
     margin: 0 auto;
     border-radius: 0; /* Ensures this specific chart is sharp-edged */
 }
