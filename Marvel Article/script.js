@@ -1,5 +1,3 @@
-import "./js/main.js";
-
 // Topbar interactions (dropdown) and small helpers
 
 function qs(sel) { return document.querySelector(sel); }
@@ -20,23 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
     moreToggle.setAttribute('aria-expanded', 'true');
   }
 
-  moreToggle.addEventListener('click', (e) => {
+  moreToggle.addEventListener('click', () => {
     const expanded = moreToggle.getAttribute('aria-expanded') === 'true';
     if (expanded) closeMenu(); else openMenu();
   });
 
-  // close when clicking outside
   document.addEventListener('click', (e) => {
     if (!moreMenu.contains(e.target) && !moreToggle.contains(e.target)) {
       closeMenu();
     }
   });
 
-  // close on Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMenu();
   });
 
-  // ensure menu hidden initially
   closeMenu();
 });

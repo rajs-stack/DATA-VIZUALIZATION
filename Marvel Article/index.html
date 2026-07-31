@@ -37,26 +37,92 @@
 
   <section class="viz-hero" aria-hidden="false">
     <div class="viz-inner">
-      <div id="viz-placeholder" class="viz-placeholder chart-board" role="region" aria-label="Visualization placeholder">
-        <h2 class="viz-title" data-font-size="21,1.75">Which is The Best Performing Marvel Movie?</h2>
-        <!-- svg chart will be appended here by JS -->
+      <div class="viz-placeholder chart-board" role="region" aria-label="Article hero">
+        <p class="viz-eyebrow">Information is Beautiful</p>
+        <h2 class="viz-title">Which is The Best Performing Marvel Movie?</h2>
+        <p class="viz-subtitle">David McCandless, Tom Evans, Paul Barton</p>
+        <div class="viz-links">
+          <a href="https://geni.us/IIB-Marvel" target="_blank" rel="noreferrer">See the data</a>
+          <a href="https://www.vizsweet.com/" target="_blank" rel="noreferrer">Made with VizSweet</a>
+        </div>
+        <p class="viz-caption">A wide data snapshot of 35 Marvel movies to date, pulling together budgets, grosses, critical scores and audience response.</p>
       </div>
     </div>
   </section>
 
   <main class="content">
     <article class="article">
+      <div class="article__meta">
+        <p class="article__meta-text">Source: the-numbers.com · rottentomatoes.com</p>
+        <p class="article__meta-text">Updated Mar 2025</p>
+      </div>
+
       <h1 class="article__title">Which is The Best Performing Marvel Movie?</h1>
-      <p class="lead">A grayscale article showcasing an interactive companion visualization — explore budgets, grosses, and audience reaction across the Marvel catalogue.</p>
+      <p class="lead">With more MCU phase 5 slugfests coming down the Disney pipe hole, we decided to take a wide data snapshot of all 35 Marvel movies to date. See if we can answer the question: what is the best performing Marvel movie?</p>
 
       <section class="article__body">
-        <h2>Introduction</h2>
-        <p>This piece recreates the Information Is Beautiful "Which is the Best Performing Marvel Movie?" visualization using D3.js. Start by exploring the chart to compare films by financial and critical metrics.</p>
+        <h2>What is the best performing Marvel Movie?</h2>
+        <p>It all depends on how you measure performance, of course.</p>
+        <p>Critical success? Audience score? Worldwide gross revenue? Domestic US revenue? Percent of budget recovered? Percent of budget recovered in the opening weekend? Opening weekend revenue? Second weekend revenue? (a decent barometer of audience response).</p>
+        <p>Many, many metrics. But don’t worry. We’ve stuffed them all into this interactive scatterplot so you can easily explore for yourself.</p>
+      </section>
+
+      <section class="article__body">
+        <h2>Some interesting metrics &amp; combos</h2>
+        <ul class="article__list">
+          <li><strong>% budget recovered</strong> – a blockbuster movie typically needs to recoup 250% of its budget to cover worldwide marketing costs. This metric quickly shows which MCU movies have been commercial flops.</li>
+          <li><strong>1st vs 2nd weekend drop off</strong> – high percentages between weekends are suggestive of audiences not particularly liking a movie, not recommending it to friends and so on.</li>
+          <li><strong>% budget recovered vs % critics score</strong> – any correlation between critical appreciation and box office success?</li>
+          <li><strong>audience vs critics % deviance</strong> – shows which films were more or less favoured by audiences vs. critics.</li>
+        </ul>
+      </section>
+
+      <section class="article__updates" aria-label="Updates">
+        <p><strong>Updates:</strong> Mar 15th 2025 – added The Marvels, Deadpool &amp; Wolverine and Captain America: Brave New World.</p>
+        <p>May 15th 2023 – added Guardians of the Galaxy 3.</p>
+        <p>Feb 23rd 2023 – added Ant and the Wasp: Quantumania.</p>
+      </section>
+
+      <section class="article__footer">
+        <div class="article__footer-section">
+          <h3>Sources</h3>
+          <a href="https://www.the-numbers.com/" target="_blank" rel="noreferrer">The Numbers</a>
+          <a href="https://www.rottentomatoes.com/" target="_blank" rel="noreferrer">Rotten Tomatoes</a>
+        </div>
+
+        <div class="article__footer-section">
+          <h3>Credits</h3>
+          <p>Research &amp; design: David McCandless</p>
+          <p>Code: Tom Evans, Paul Barton</p>
+        </div>
+
+        <div class="article__footer-section">
+          <h3>Data</h3>
+          <a href="https://geni.us/IIB-Marvel" target="_blank" rel="noreferrer">View the data</a>
+        </div>
+
+        <div class="article__footer-section">
+          <h3>Topics</h3>
+          <a href="https://informationisbeautiful.net/topic/arts-culture" target="_blank" rel="noreferrer">Arts &amp; Culture</a>
+        </div>
+      </section>
+
+      <section class="article__more" aria-label="More articles">
+        <h3>More</h3>
+        <div class="more-links">
+          <a href="https://informationisbeautiful.net/visualizations/what-is-the-most-successful-hollywood-movie-of-all-time/" target="_blank" rel="noreferrer">What is The Most Successful Hollywood Movie of All Time?</a>
+          <a href="https://informationisbeautiful.net/visualizations/american-novels-everyone-should-read/" target="_blank" rel="noreferrer">American Novels Everyone Should Read</a>
+          <a href="https://informationisbeautiful.net/visualizations/top-500-passwords-visualized/" target="_blank" rel="noreferrer">Top 500 Most Common Passwords Visualized</a>
+          <a href="https://informationisbeautiful.net/visualizations/what-needs-to-be-done-to-get-the-usa-to-netzero-carbon/" target="_blank" rel="noreferrer">What Needs to Be Done to Get the USA to Netzero?</a>
+        </div>
+      </section>
+
+      <section class="newsletter-card" aria-label="Newsletter signup">
+        <h3>Our monthly newsletter. Never miss another beautiful graphic…</h3>
+        <a href="https://infobeautiful.myflodesk.com/newsletter" target="_blank" rel="noreferrer">Sign up now</a>
       </section>
     </article>
   </main>
-
-  <div id="tooltip" class="tooltip" aria-hidden="true"></div>
 
   <script type="module" src="script.js"></script>
 </body>
